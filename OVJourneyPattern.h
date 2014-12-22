@@ -13,7 +13,7 @@
 @interface OVJourneyPattern : OVObject
 
 @property (nonatomic, readonly) journey_pattern_t pattern, nextPattern;
-@property (nonatomic, readonly) NSString *shortName;
+@property (nonatomic, readonly) NSString *lineCode;
 @property (nonatomic, readonly) NSString *headsign;
 
 // Stops

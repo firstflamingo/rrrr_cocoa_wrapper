@@ -24,9 +24,9 @@
     return self.ctx->journey_patterns[self.index + 1];
 }
 
-- (NSString *)shortName
+- (NSString *)lineCode
 {
-    return [[NSString alloc] initWithUTF8String:tdata_shortname_for_journey_pattern(self.ctx, self.index)];
+    return [[NSString alloc] initWithUTF8String:tdata_line_code_for_journey_pattern(self.ctx, self.index)];
 }
 
 - (NSString *)headsign
@@ -37,7 +37,7 @@
 - (NSString *)description
 {
     NSMutableString *desc = [NSMutableString stringWithCapacity:80];
-    [desc appendFormat:@"%@ \"%@ %@\"", [super description], self.shortName, self.headsign];
+    [desc appendFormat:@"%@ \"%@ %@\"", [super description], self.lineCode, self.headsign];
     
     NSUInteger n_stops = self.nrOfStops;
     [desc appendFormat:@"\n\t%ld stops:", n_stops];
