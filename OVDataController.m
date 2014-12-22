@@ -148,9 +148,9 @@ static tdata_t _ctx;
 
 rtime_t rtimeFromNSDate(NSDate *date)
 {
-    NSCalendar *cal = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-    NSDateComponents *comps = [cal components:NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit fromDate:date];
-    uint32_t seconds = (((comps.hour * 60) + comps.minute) * 60) + comps.second;
+    NSCalendar *cal = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSDateComponents *comps = [cal components:NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond fromDate:date];
+    NSInteger seconds = (((comps.hour * 60) + comps.minute) * 60) + comps.second;
     rtime_t rtime = SEC_TO_RTIME(seconds);
     /* shift rtime to day 1. day 0 is yesterday. */
     rtime += RTIME_ONE_DAY;
