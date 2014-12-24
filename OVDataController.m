@@ -16,7 +16,7 @@
 #import "OVAgency.h"
 #import "OVStop.h"
 #import "OVJourneyPattern.h"
-#import "OVTrip.h"
+#import "OVVehicleJourney.h"
 
 #define VER_SCALE           111195.0
 

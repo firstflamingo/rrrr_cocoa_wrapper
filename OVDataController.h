@@ -10,7 +10,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import "tdata.h"
 
-@class OVAgency, OVStop, OVJourneyPattern, OVTrip;
+@class OVAgency, OVStop, OVJourneyPattern, OVVehicleJourney;
 
 @interface OVDataController : NSObject
 

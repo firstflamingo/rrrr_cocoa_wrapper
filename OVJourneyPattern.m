@@ -9,7 +9,7 @@
 #import "OVJourneyPattern.h"
 
 #import "OVDataController.h"
-#import "OVTrip.h"
+#import "OVVehicleJourney.h"
 #import "OVStop.h"
 
 @implementation OVJourneyPattern
@@ -71,7 +71,7 @@
 
 - (int32_t)stopIndexAtIndex:(int32_t)index
 {
-    uint32_t *route_stops = tdata_points_for_journey_pattern(self.ctx, self.index);
+    spidx_t *route_stops = tdata_points_for_journey_pattern(self.ctx, self.index);
     return route_stops[index];
 }
 
@@ -80,24 +80,24 @@
     return self.dataController.stops[[self stopIndexAtIndex:index]];
 }
 
-#pragma mark - Trips
+#pragma mark - VehicleJourneys
 
-- (NSUInteger)nrOfTrips
+- (NSUInteger)nrOfVehicleJourneys
 {
-    return self.nextPattern.trip_ids_offset - self.pattern.trip_ids_offset;
+    return self.nextPattern.vj_ids_offset - self.pattern.vj_ids_offset;
 }
 
-- (NSArray *)trips
+- (NSArray *)vjs
 {
-    if (!_trips) {
-        NSMutableArray *array = [NSMutableArray arrayWithCapacity:self.nrOfTrips];
-        for (int32_t i = 0; i < self.nrOfTrips; i++) {
-            OVTrip *trip = [[OVTrip alloc] initWithIndex:i + self.pattern.trip_ids_offset journeyPattern:self];
-            [array addObject:trip];
+    if (!_vjs) {
+        NSMutableArray *array = [NSMutableArray arrayWithCapacity:self.nrOfVehicleJourneys];
+        for (uint32_t i = 0; i < self.nrOfVehicleJourneys; i++) {
+            OVVehicleJourney *vj = [[OVVehicleJourney alloc] initWithIndex:i + self.pattern.vj_ids_offset journeyPattern:self];
+            [array addObject:vj];
         }
-        _trips = array;
+        _vjs = array;
     }
-    return _trips;
+    return _vjs;
 }
 
 @end

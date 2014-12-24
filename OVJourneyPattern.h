@@ -8,7 +8,7 @@
 
 #import "OVObject.h"
 
-@class OVStop, OVTrip;
+@class OVStop, OVVehicleJourney;
 
 @interface OVJourneyPattern : OVObject
 
@@ -24,9 +24,9 @@
 - (int32_t)stopIndexAtIndex:(int32_t)index;
 - (OVStop *)stopAtIndex:(int32_t)index;
 
-// Trips
+// VehicleJourneys
 
-@property (nonatomic, readonly) NSUInteger nrOfTrips;
-@property (nonatomic, strong) NSArray *trips;
+@property (nonatomic, readonly) NSUInteger nrOfVehicleJourneys;
+@property (nonatomic, strong) NSArray *vjs;
 
 @end
