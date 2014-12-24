@@ -8,6 +8,13 @@
 
 #import "OVObject.h"
 
+typedef NS_OPTIONS(uint8_t, OVStopActOptions) {
+    stopActNoOptions = 0,
+    stopActWaitsIfEarly = 1 << 0,
+    stopActAllowsBoarding = 1 << 1,
+    stopActAllowsAlighting = 1 << 2,
+};
+
 @class OVStop, OVVehicleJourney;
 
 @interface OVJourneyPattern : OVObject
@@ -23,6 +30,7 @@
 
 - (int32_t)stopIndexAtIndex:(int32_t)index;
 - (OVStop *)stopAtIndex:(int32_t)index;
+- (OVStopActOptions)stopActOptionsAtIndex:(int32_t)index;
 
 // VehicleJourneys
 

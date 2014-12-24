@@ -8,7 +8,6 @@
 
 #import "OVStopAct.h"
 #import "OVVehicleJourney.h"
-#import "OVJourneyPattern.h"
 #import "OVStop.h"
 
 @implementation OVStopAct
@@ -25,6 +24,11 @@
 - (OVStop *)stop
 {
     return [self.vj.journeyPattern stopAtIndex:self.index];
+}
+
+- (OVStopActOptions)options
+{
+    return [self.vj.journeyPattern stopActOptionsAtIndex:self.index];
 }
 
 - (rtime_t)arrival
@@ -45,6 +49,21 @@
 - (NSString *)departureString
 {
     return stringFromRTime(self.departure);
+}
+
+- (BOOL)waitsIfEarly
+{
+    return self.options & stopActWaitsIfEarly;
+}
+
+- (BOOL)allowsBoarding
+{
+    return self.options & stopActAllowsBoarding;
+}
+
+- (BOOL)allowsAlighting
+{
+    return self.options & stopActAllowsAlighting;
 }
 
 @end

@@ -80,6 +80,12 @@
     return self.dataController.stops[[self stopIndexAtIndex:index]];
 }
 
+- (OVStopActOptions)stopActOptionsAtIndex:(int32_t)index
+{
+    uint8_t *attributes = tdata_stop_attributes_for_journey_pattern(self.ctx, self.index);
+    return attributes[index];
+}
+
 #pragma mark - VehicleJourneys
 
 - (NSUInteger)nrOfVehicleJourneys
