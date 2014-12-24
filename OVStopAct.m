@@ -7,34 +7,34 @@
 //
 
 #import "OVStopAct.h"
-#import "OVTrip.h"
+#import "OVVehicleJourney.h"
 #import "OVJourneyPattern.h"
 #import "OVStop.h"
 
 @implementation OVStopAct
 
-- (instancetype)initWithIndex:(int32_t)index trip:(OVTrip *)trip
+- (instancetype)initWithIndex:(int32_t)index vj:(OVVehicleJourney *)vj
 {
     self = [super initWithIndex:index];
     if (self) {
-        self.trip = trip;
+        self.vj = vj;
     }
     return self;
 }
 
 - (OVStop *)stop
 {
-    return [self.trip.journeyPattern stopAtIndex:self.index];
+    return [self.vj.journeyPattern stopAtIndex:self.index];
 }
 
 - (rtime_t)arrival
 {
-    return self.trip.beginTime + self.trip.stopTimes[self.index].arrival;
+    return self.vj.beginTime + self.vj.stopTimes[self.index].arrival;
 }
 
 - (rtime_t)departure
 {
-    return self.trip.beginTime + self.trip.stopTimes[self.index].departure;
+    return self.vj.beginTime + self.vj.stopTimes[self.index].departure;
 }
 
 - (NSString *)arrivalString

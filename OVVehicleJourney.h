@@ -1,5 +1,5 @@
 //
-//  OVTrip.h
+//  OVVehicleJourney.h
 //  OpenOVDemo
 //
 //  Created by Berend Schotanus on 15-11-13.
@@ -10,7 +10,7 @@
 
 @class OVJourneyPattern;
 
-@interface OVTrip : OVObject
+@interface OVVehicleJourney : OVObject
 
 - (instancetype)initWithIndex:(int32_t)index journeyPattern:(OVJourneyPattern*)pattern;
 

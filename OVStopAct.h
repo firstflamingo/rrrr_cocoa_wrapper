@@ -8,13 +8,13 @@
 
 #import "OVObject.h"
 
-@class OVTrip, OVStop;
+@class OVVehicleJourney, OVStop;
 
 @interface OVStopAct : OVObject
 
-- (instancetype)initWithIndex:(int32_t)index trip:(OVTrip*)trip;
+- (instancetype)initWithIndex:(int32_t)index vj:(OVVehicleJourney*)vj;
 
-@property (nonatomic, weak) OVTrip *trip;
+@property (nonatomic, weak) OVVehicleJourney *vj;
 @property (nonatomic, readonly) OVStop *stop;
 @property (nonatomic, readonly) rtime_t arrival, departure;
 @property (nonatomic, readonly) NSString *arrivalString, *departureString;
