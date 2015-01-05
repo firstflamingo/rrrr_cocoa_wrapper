@@ -31,11 +31,6 @@
     return self.ctx->journey_patterns[self.index];
 }
 
-- (journey_pattern_t)nextPattern
-{
-    return self.ctx->journey_patterns[self.index + 1];
-}
-
 - (NSString *)lineCode
 {
     return [[NSString alloc] initWithUTF8String:tdata_line_code_for_journey_pattern(self.ctx, self.index)];
@@ -66,7 +61,7 @@
 
 - (NSUInteger)nrOfStops
 {
-    return self.nextPattern.journey_pattern_point_offset - self.pattern.journey_pattern_point_offset;
+    return self.pattern.n_stops;
 }
 
 - (NSArray *)stops
@@ -102,7 +97,7 @@
 
 - (NSUInteger)nrOfVehicleJourneys
 {
-    return self.nextPattern.vj_ids_offset - self.pattern.vj_ids_offset;
+    return self.pattern.n_vjs;
 }
 
 - (NSArray *)vjs
