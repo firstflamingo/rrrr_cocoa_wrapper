@@ -19,7 +19,7 @@ typedef NS_OPTIONS(uint8_t, OVStopActOptions) {
 
 @interface OVJourneyPattern : OVObject
 
-@property (nonatomic, readonly) journey_pattern_t pattern, nextPattern;
+@property (nonatomic, readonly) journey_pattern_t pattern;
 @property (nonatomic, readonly) NSString *lineCode;
 @property (nonatomic, readonly) NSString *headsign;
 
